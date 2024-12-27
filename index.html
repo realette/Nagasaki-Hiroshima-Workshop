@@ -13,7 +13,7 @@
         <meta http-equiv="Cache-Control" content="no-cache">
         <meta http-equiv="Pragma" content="no-cache">
 
-        <link rel="icon" type="image/png" href="source/Puang2.png" sizes="192x192">
+        <link rel="icon" type="image/png" href="source/Puang.png" sizes="192x192">
         <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
 
         <style>
@@ -53,6 +53,23 @@
 
             a {
                
+            }
+
+            #warpBox{
+                position: absolute;
+                top: 29%;
+                left: 20.5%;
+                width: 60%;
+                height: 60%;
+                display: grid; /* Grid 레이아웃 사용 */
+                grid-template-columns: repeat(1, 1fr); /* 한 줄에 5개의 열 */
+                gap: 0; /* 요소 간 간격 */
+                z-index: 10;
+            }
+
+            .warpTag{
+                position: relative;
+                z-index: 11;
             }
 
             #clickerBox{
@@ -109,67 +126,66 @@
                 z-index: 1000;
             }
 
-            
             #popup2 {
                 display: none; /* 기본적으로 숨김 */
-                width: 56%;
-                left: 44%;
+                width: 40%;
+                left: 60%;
                 top: 2%;
                 z-index: 1000;
             }
 
             #popup3 {
                 display: none; /* 기본적으로 숨김 */
-                width: 56%;
-                left: 44%;
+                width: 40%;
+                left: 60%;
                 top: 14%;
                 z-index: 1000;
             }
 
             #popup4 {
                 display: none; /* 기본적으로 숨김 */
-                width: 56%;
-                left: 44%;
+                width: 40%;
+                left: 60%;
                 top: 24%;
                 z-index: 1000;
             }
 
             #popup5 {
                 display: none; /* 기본적으로 숨김 */
-                width: 56%;
-                left: 44%;
+                width: 40%;
+                left: 60%;
                 top: 37%;
                 z-index: 1000;
             }
 
             #popup6 {
                 display: none; /* 기본적으로 숨김 */
-                width: 56%;
-                left: 44%;
+                width: 40%;
+                left: 60%;
                 top: 58%;
                 z-index: 1000;
             }
 
             #popup7 {
                 display: none; /* 기본적으로 숨김 */
-                width: 56%;
-                left: 44%;
+                width: 40%;
+                left: 60%;
                 top: 62%;
                 z-index: 1000;
             }
 
             #popup8 {
                 display: none; /* 기본적으로 숨김 */
-                width: 56%;
-                left: 44%;
+                width: 40%;
+                left: 60%;
                 top: 70%;
                 z-index: 1000;
             }
 
             #popup9 {
                 display: none; /* 기본적으로 숨김 */
-                width: 56%;
-                left: 44%;
+                width: 40%;
+                left: 60%;
                 top: 76%;
                 z-index: 1000;
             }
@@ -206,80 +222,80 @@
 
             #calEvent2{
                 position: absolute;
-                width: 22%;
+                width: 38%;
                 height: 5.6%;
                 left: 22%;
-                top: 2.75%;
+                top: 2%;
                 z-index: 20;
                 background-color: rgba(255, 242, 125, 0.164);
             }
 
             #calEvent3{
                 position: absolute;
-                width: 22%;
+                width: 38%;
                 height: 3.5%;
                 left: 22%;
-                top: 15.25%;
+                top: 14.5%;
                 z-index: 20;
                 background-color: rgba(255, 242, 125, 0.164);
             }
 
             #calEvent4{
                 position: absolute;
-                width: 22%;
+                width: 38%;
                 height: 3.5%;
                 left: 22%;
-                top: 25.75%;
+                top: 25%;
                 z-index: 20;
                 background-color: rgba(255, 242, 125, 0.164);
             }
 
             #calEvent5{
                 position: absolute;
-                width: 22%;
+                width: 38%;
                 height: 7.75%;
                 left: 22%;
-                top: 36.25%;
+                top: 34.75%;
                 z-index: 20;
                 background-color: rgba(255, 242, 125, 0.164);
             }
 
             #calEvent6{
                 position: absolute;
-                width: 22%;
+                width: 38%;
                 height: 3.5%;
                 left: 22%;
-                top: 59.75%;
+                top: 59%;
                 z-index: 20;
                 background-color: rgba(255, 242, 125, 0.164);
             }
 
             #calEvent7{
                 position: absolute;
-                width: 22%;
+                width: 38%;
                 height: 3.5%;
                 left: 22%;
-                top: 63.25%;
+                top: 62.5%;
                 z-index: 20;
                 background-color: rgba(255, 242, 125, 0.164);
             }
 
             #calEvent8{
                 position: absolute;
-                width: 22%;
+                width: 38%;
                 height: 5.6%;
                 left: 22%;
-                top: 70.4%;
+                top: 69.65%;
                 z-index: 20;
                 background-color: rgba(255, 242, 125, 0.164);
             }
 
             #calEvent9{
                 position: absolute;
-                width: 22%;
+                width: 38%;
                 height: 5.6%;
                 left: 22%;
-                top: 76%;
+                top: 75.25%;
                 z-index: 20;
                 background-color: rgba(255, 242, 125, 0.164);
             }
@@ -287,7 +303,7 @@
             @media screen and (max-width: 768px) {
                 #topbox{
                     position: fixed;
-                    z-index: 10;
+                    z-index: 2000;
                     width: 100%;
                     height: 5vh;
                     background-color: red;
@@ -325,10 +341,27 @@
     <body>
         <div id="topbox"></div>
         <div id="mainbox">
-            <div class="inbox"><img width="100%" src="source/1.jpg"></div>
-            <div class="inbox"><img width="100%" src="source/2.jpg"></div>
-            <div class="inbox">
-                <img width="100%" src="source/3.jpg">
+            <div class="inbox" id="title"><img width="100%" src="source/1.jpg"></div>
+            <div class="inbox" id="MOC">
+                <img width="100%" src="source/2.jpg">
+                <div id="warpBox">
+                    <a class="warpTag" href="#p1"></a>
+                    <a class="warpTag" href="#p2"></a>
+                    <a class="warpTag" href="#p3"></a>
+                    <a class="warpTag" href="#p4"></a>
+                    <a class="warpTag" href="#p5"></a>
+                    <a class="warpTag" href="#p6"></a>
+                    <a class="warpTag" href="#p7"></a>
+                    <a class="warpTag" href="#p8"></a>
+                    <a class="warpTag" href="#p9"></a>
+                    <a class="warpTag" href="#p10"></a>
+                    <a class="warpTag" href="#p11"></a>
+                    <a class="warpTag" href="#p12"></a>
+                </div>
+            </div>
+            <div class="inbox" id="p1"><img width="100%" src="source/3.jpg"></div>
+            <div class="inbox" id="p2">
+                <img width="100%" src="source/4.jpg">
                 <div id="clickerBox">
                     <a class="clicker" href="source/0-pfLMK.html"></a>
                     <div class="clicker"></div>
@@ -352,8 +385,8 @@
                     <a class="clicker" href="source/15-HHJ.html"></a>
                 </div>
             </div>
-            <div class="inbox">
-                <img width="100%" src="source/4.jpg">
+            <div class="inbox" id="p3">
+                <img width="100%" src="source/5.jpg">
                 <div class="calBox">
                     <div id="calEvent1"></div>
                     <div class="popup-overlay" id="popupOverlay"></div>
@@ -400,8 +433,8 @@
                     </script>
                 </div>
             </div>
-            <div class="inbox">
-                <img width="100%" src="source/5.jpg">
+            <div class="inbox" id="p4">
+                <img width="100%" src="source/6.jpg">
                 <div class="calBox">
                     <div id="calEvent2"></div>
                     <div class="popup-overlay" id="popupOverlay2"></div>
@@ -512,12 +545,17 @@
                     </script>
                 </div>
             </div>
-            <div class="inbox"><img width="100%" src="source/6.jpg"></div>
-            <div class="inbox"><img width="100%" src="source/7.jpg"></div>
-            <div class="inbox"><img width="100%" src="source/8.jpg"></div>
-            <div class="inbox"><img width="100%" src="source/9.jpg"></div>
-            <div class="inbox"><img width="100%" src="source/10.jpg"></div>
-            <div class="inbox"><img width="100%" src="source/11.jpg"></div>
+            <div class="inbox" id="p5"><img width="100%" src="source/7.jpg"></div>
+            <div class="inbox" id="p6"><img width="100%" src="source/8.jpg"></div>
+            <div class="inbox" id="p6-2"><img width="100%" src="source/9.jpg"></div>
+            <div class="inbox" id="p7"><img width="100%" src="source/10.jpg"></div>
+            <div class="inbox" id="p8"><img width="100%" src="source/11.jpg"></div>
+            <div class="inbox" id="p8-2"><img width="100%" src="source/12.jpg"></div>
+            <div class="inbox" id="p9"><img width="100%" src="source/13.jpg"></div>
+            <div class="inbox" id="p10"><img width="100%" src="source/14.jpg"></div>
+            <div class="inbox" id="p11"><img width="100%" src="source/15.jpg"></div>
+            <div class="inbox" id="p11-2"><img width="100%" src="source/16.jpg"></div>
+            <div class="inbox" id="p12"><img width="100%" src="source/17.jpg"></div>
         </div>
     
     </body>
