@@ -89,19 +89,31 @@
                 background-color: rgba(255, 242, 125, 0.164);
             }
 
-            #popup1 {
-                display: none; /* 기본적으로 숨김 */
+            .popup{
                 position: absolute;
                 font-family: 'NanumSquareAcr';
                 font-size: 8pt;
                 line-height: 1.5em;
                 border: 0.05em solid rgb(92, 185, 209);
-                padding-bottom: 1.5vw;
-                width: 60%;
+                background-color: rgb(255, 235, 123);
                 height: fit-content;
+                padding-bottom: 1.5vw;
+            }
+
+            #popup1 {
+                display: none; /* 기본적으로 숨김 */
+                width: 60%;
                 left: 40%;
                 top: 59%;
-                background-color: rgb(255, 235, 123);
+                z-index: 1000;
+            }
+
+            
+            #popup2 {
+                display: none; /* 기본적으로 숨김 */
+                width: 56%;
+                left: 44%;
+                top: 2%;
                 z-index: 1000;
             }
 
@@ -111,7 +123,6 @@
                 margin: 0;
             }
 
-            /* 배경 흐리게 */
             .popup-overlay {
                 display: none; /* 기본적으로 숨김 */
                 position: fixed;
@@ -124,8 +135,19 @@
                 }
 
             #popup1.active,
+            #popup2.active,
             .popup-overlay.active {
                 display: block; /* 활성화 시 보이게 함 */
+            }
+
+            #calEvent2{
+                position: absolute;
+                width: 22%;
+                height: 5.6%;
+                left: 22%;
+                top: 2.75%;
+                z-index: 20;
+                background-color: rgba(255, 242, 125, 0.164);
             }
             
             @media screen and (max-width: 768px) {
@@ -154,14 +176,18 @@
                     margin-bottom: 0.5vh;
                 }
 
+                .popup{
+                    position: absolute;
+                    font-family: 'NanumSquareAcr';
+                    font-size: 2.75pt;
+                    line-height: 1.5em;
+                    border: 0.05em solid rgb(92, 185, 209);
+                    background-color: rgb(255, 235, 123);
+                }
+
                 #popup1 {
-                font-size: 2pt;
-                line-height: 1.5em;
-                border: 0.05em solid rgb(92, 185, 209);
-                padding-bottom: 1.5vw;
-                width: 60%;
-                height: fit-content;
-            }
+                    padding-bottom: 1.5vw;
+                }
             }
         </style>
     </head>
@@ -201,7 +227,7 @@
                 <div class="calBox">
                     <div id="calEvent1"></div>
                     <div class="popup-overlay" id="popupOverlay"></div>
-                    <div id="popup1">
+                    <div class="popup" id="popup1">
                         <p>
                             14시 피폭체험담
                             <br>장소: 나가사키피폭재해자협회
@@ -244,7 +270,35 @@
                     </script>
                 </div>
             </div>
-            <div class="inbox"><img width="100%" src="source/5.jpg"></div>
+            <div class="inbox">
+                <img width="100%" src="source/5.jpg">
+                <div class="calBox">
+                    <div id="calEvent2"></div>
+                    <div class="popup-overlay" id="popupOverlay2"></div>
+                    <div class="popup" id="popup2">
+                        <p>숙소에서 나가사키 버스터미널까지 도보 약 22분 소요됩니다.<br>서둘러 주세요! 이 시간에는 공중교통편이 없습니다. 참고하세요.</p>
+                    </div>
+                    <script>
+                        // 요소 가져오기
+                        const calEvent2 = document.getElementById('calEvent2'); // 클릭 트리거 div
+                        const popup2 = document.getElementById('popup2'); // 팝업창
+                        const popupOverlay2 = document.getElementById('popupOverlay2'); // 팝업 배경
+                        // 팝업 열기 함수
+                        function openPopup() {
+                          popup2.classList.add('active');
+                          popupOverlay.classList.add('active');
+                        }
+                        // 팝업 닫기 함수
+                        function closePopupFunc() {
+                        popup2.classList.remove('active');
+                        popupOverlay.classList.remove('active');
+                        }
+                        // 이벤트 리스너 추가
+                        calEvent2.addEventListener('click', openPopup); // calEvent1 클릭 시 팝업 열기
+                        popupOverlay.addEventListener('click', closePopupFunc); // 배경 클릭 시 닫기
+                    </script>
+                </div>
+            </div>
             <div class="inbox"><img width="100%" src="source/6.jpg"></div>
             <div class="inbox"><img width="100%" src="source/7.jpg"></div>
             <div class="inbox"><img width="100%" src="source/8.jpg"></div>
