@@ -14,14 +14,9 @@
         <meta http-equiv="Pragma" content="no-cache">
 
         <link rel="icon" type="image/png" href="source/Puang2.png" sizes="192x192">
-        
-        <style>            
-            @font-face {
-                font-family: 'Iropke Batang';
-                font-style: normal;
-                font-weight: 400;
-                src: url('https://cdn.jsdelivr.net/font-iropke-batang/1.2/IropkeBatangM.woff') format('woff');
-            }
+        <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
+
+        <style>
             #topbox{
                 position: fixed;
                 z-index: 10;
@@ -84,8 +79,8 @@
                 left: 10%;
             }
 
-            .calEvent{
-                position: relative;
+            #calEvent1{
+                position: absolute;
                 width: 12.5%;
                 height: 38.75%;
                 left: 25%;
@@ -93,19 +88,51 @@
                 z-index: 20;
                 background-color: rgba(255, 242, 125, 0.164);
             }
+
+            .popup {
+                display: none; /* 기본적으로 숨김 */
+                position: absolute;
+                font-family: 'NanumSquareAcr';
+                font-size: 1.3vw;
+                line-height: 1.5em;
+                border: 0.05em solid rgb(92, 185, 209);
+                padding-bottom: 1.5vw;
+                width: 60%;
+                height: 40%;
+                left: 40%;
+                top: 59%;
+                background-color: rgb(255, 235, 123);
+                z-index: 1000;
+            }
+
+            p{
+                padding: 1.5vw;
+                padding-bottom: 0;
+                margin: 0;
+            }
+
+            /* 배경 흐리게 */
+            .popup-overlay {
+                display: none; /* 기본적으로 숨김 */
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0);
+                z-index: 999;
+                }
+
+            .popup.active,
+            .popup-overlay.active {
+                display: block; /* 활성화 시 보이게 함 */
+            }
             
             .centeralign {
                 text-align: center;
             }
             
             @media screen and (max-width: 768px) {
-                @font-face {
-                    font-family: 'Iropke Batang';
-                    font-style: normal;
-                    font-weight: 400;
-                    src: url('https://cdn.jsdelivr.net/font-iropke-batang/1.2/IropkeBatangM.woff') format('woff');
-                }
-
                 #topbox{
                     position: fixed;
                     z-index: 10;
@@ -147,32 +174,74 @@
             <div class="inbox">
                 <img width="100%" src="source/3.jpg">
                 <div id="clickerBox">
-                <a class="clicker" href="source/0-pfLMK.html"></a>
-                <div class="clicker"></div>
-                <div class="clicker"></div>
-                <div class="clicker"></div>
-                <div class="clicker"></div>
-                <a class="clicker" href="source/1-KYS.html"></a>
-                <a class="clicker" href="source/2-RV.html"></a>
-                <a class="clicker" href="source/3-PSH.html"></a>
-                <a class="clicker" href="source/4-PYR.html"></a>
-                <a class="clicker" href="source/5-SSH.html"></a>
-                <a class="clicker" href="source/6-ASH.html"></a>
-                <a class="clicker" href="source/7-AYB.html"></a>
-                <a class="clicker" href="source/8-LSB.html"></a>
-                <a class="clicker" href="source/9-LEJ.html"></a>
-                <a class="clicker" href="source/10-LJS.html"></a>
-                <a class="clicker" href="source/11-LJH.html"></a>
-                <a class="clicker" href="source/12-JHY.html"></a>
-                <a class="clicker" href="source/13-JGH.html"></a>
-                <a class="clicker" href="source/14-JYW.html"></a>
-                <a class="clicker" href="source/15-HHJ.html"></a>
+                    <a class="clicker" href="source/0-pfLMK.html"></a>
+                    <div class="clicker"></div>
+                    <div class="clicker"></div>
+                    <div class="clicker"></div>
+                    <div class="clicker"></div>
+                    <a class="clicker" href="source/1-KYS.html"></a>
+                    <a class="clicker" href="source/2-RV.html"></a>
+                    <a class="clicker" href="source/3-PSH.html"></a>
+                    <a class="clicker" href="source/4-PYR.html"></a>
+                    <a class="clicker" href="source/5-SSH.html"></a>
+                    <a class="clicker" href="source/6-ASH.html"></a>
+                    <a class="clicker" href="source/7-AYB.html"></a>
+                    <a class="clicker" href="source/8-LSB.html"></a>
+                    <a class="clicker" href="source/9-LEJ.html"></a>
+                    <a class="clicker" href="source/10-LJS.html"></a>
+                    <a class="clicker" href="source/11-LJH.html"></a>
+                    <a class="clicker" href="source/12-JHY.html"></a>
+                    <a class="clicker" href="source/13-JGH.html"></a>
+                    <a class="clicker" href="source/14-JYW.html"></a>
+                    <a class="clicker" href="source/15-HHJ.html"></a>
                 </div>
             </div>
             <div class="inbox">
                 <img width="100%" src="source/4.jpg">
                 <div class="calBox">
-                    <div class="calEvent"></div>
+                    <div id="calEvent1"></div>
+                    <div class="popup-overlay" id="popupOverlay"></div>
+                    <div class="popup" id="popup">
+                        <p>
+                            14시 피폭체험담
+                            <br>장소: 나가사키피폭재해자협회
+                            <br>체험강의자 : 나가사키피폭재해자협회 카카타 후미애 사무국장
+                        </p>
+                        <p>
+                            ★피폭체험담 강사
+                            <br>카키타 후미에
+                            <br>1993년부터 나가사키원폭피해자협의회사무국장으로 근무하여 2016년부터 현재까지 사무국장으로 재직중.
+                            <br>2012년 피폭2세 모임을 결성 전쟁이 없는 핵무기가 없는 세계를 실현하기 위해 피폭2세로서 체험담을 다음세대에 전하는 활동을 하고 있음.
+                            <br>나가사키시 가족교류증언사업에 참가하여 어머니의 피폭체험담과 여러 다른 피폭자들의
+                            <br>체험담을 아이들에게 들려주는 활동을 하고 있음.
+                        </p>
+                        <p>
+                            15시 헌화: 피폭80주년과 한일수교 60주년을 기념하여 한일 화해의 대승적 차원에서 한인묘역과 일본인 묘역 동시 헌화식 거행
+                        </p>
+                        <p>                         
+                            16시 원폭박물관
+                        </p>
+                        <p>17시 단체 촬영: 평화공원과 원폭박물관에서 다양한 단체 촬영예정</p>
+                    </div>
+                    <script>
+                        // 요소 가져오기
+                        const calEvent1 = document.getElementById('calEvent1'); // 클릭 트리거 div
+                        const popup = document.getElementById('popup'); // 팝업창
+                        const popupOverlay = document.getElementById('popupOverlay'); // 팝업 배경
+                        // 팝업 열기 함수
+                        function openPopup() {
+                          popup.classList.add('active');
+                          popupOverlay.classList.add('active');
+                        }
+                        // 팝업 닫기 함수
+                        function closePopupFunc() {
+                        popup.classList.remove('active');
+                        popupOverlay.classList.remove('active');
+                        }
+                        // 이벤트 리스너 추가
+                        calEvent1.addEventListener('click', openPopup); // calEvent1 클릭 시 팝업 열기
+                        popupOverlay.addEventListener('click', closePopupFunc); // 배경 클릭 시 닫기
+                    </script>
                 </div>
             </div>
             <div class="inbox"><img width="100%" src="source/5.jpg"></div>
