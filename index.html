@@ -89,7 +89,7 @@
                 background-color: rgba(255, 242, 125, 0.164);
             }
 
-            .popup {
+            #popup1 {
                 display: none; /* 기본적으로 숨김 */
                 position: absolute;
                 font-family: 'NanumSquareAcr';
@@ -123,7 +123,7 @@
                 z-index: 999;
                 }
 
-            .popup.active,
+            #popup1.active,
             .popup-overlay.active {
                 display: block; /* 활성화 시 보이게 함 */
             }
@@ -201,7 +201,7 @@
                 <div class="calBox">
                     <div id="calEvent1"></div>
                     <div class="popup-overlay" id="popupOverlay"></div>
-                    <div class="popup" id="popup">
+                    <div id="popup1">
                         <p>
                             14시 피폭체험담
                             <br>장소: 나가사키피폭재해자협회
@@ -226,16 +226,16 @@
                     <script>
                         // 요소 가져오기
                         const calEvent1 = document.getElementById('calEvent1'); // 클릭 트리거 div
-                        const popup = document.getElementById('popup'); // 팝업창
+                        const popup1 = document.getElementById('popup1'); // 팝업창
                         const popupOverlay = document.getElementById('popupOverlay'); // 팝업 배경
                         // 팝업 열기 함수
                         function openPopup() {
-                          popup.classList.add('active');
+                          popup1.classList.add('active');
                           popupOverlay.classList.add('active');
                         }
                         // 팝업 닫기 함수
                         function closePopupFunc() {
-                        popup.classList.remove('active');
+                        popup1.classList.remove('active');
                         popupOverlay.classList.remove('active');
                         }
                         // 이벤트 리스너 추가
