@@ -28,11 +28,32 @@
                 margin-bottom: 7vh;
             }
 
+            #langBox{
+                position: absolute;
+                border-radius: 20%;
+                border: 0.15pc solid rgb(0, 0, 0);
+                width: 3vw;
+                height: 2.85vw;
+                padding: 0.25%; 
+                background: linear-gradient(120deg, rgb(255, 255, 255), rgb(25, 213, 255));;
+                top: 2vh;
+                right: 17%;
+                overflow: hidden;
+                z-index: 1000;
+            }
+            
+            #langIcon{
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+            }
+
             .inbox{
                 position: relative;
                 width: 100%;
                 margin-bottom: 3vh;
             }
+            
             
             html{
                 background-color: rgb(194, 194, 194);
@@ -635,8 +656,11 @@
     </head>
     
     <body>
+        <a id="langBox" href="eng/index.html"><img id="langIcon" src="source/Lang.png"></a>
         <div id="mainbox">
-            <div class="inbox" id="title"><img width="100%" src="source/1.jpg"></div>
+            <div class="inbox" id="title">
+                <img width="100%" src="source/1.jpg">
+            </div>
             <div class="inbox" id="MOC">
                 <img width="100%" src="source/2.jpg">
                 <div id="warpBox">
