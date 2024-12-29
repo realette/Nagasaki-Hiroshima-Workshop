@@ -69,10 +69,10 @@
 
             #warpBox{
                 position: absolute;
-                top: 26.75%;
+                top: 47%;
                 left: 20.5%;
                 width: 60%;
-                height: 59.25%;
+                height: 22%;
                 display: grid; /* Grid 레이아웃 사용 */
                 grid-template-columns: repeat(1, 1fr); /* 한 줄에 5개의 열 */
                 gap: 0; /* 요소 간 간격 */
@@ -100,7 +100,7 @@
                 position: relative;
                 z-index: 11;
             }
-
+            /*
             .calBox{
                 position: absolute;
                 width: 80%;
@@ -131,15 +131,16 @@
             }
 
             #popup1 {
-                display: none; /* 기본적으로 숨김 */
+                display: none; 
                 width: 60%;
                 left: 40%;
                 bottom: 0;
                 z-index: 1000;
             }
 
+            
             #popup2 {
-                display: none; /* 기본적으로 숨김 */
+                display: none; 
                 width: 40%;
                 left: 60%;
                 top: 2%;
@@ -147,7 +148,7 @@
             }
 
             #popup3 {
-                display: none; /* 기본적으로 숨김 */
+                display: none;
                 width: 40%;
                 left: 60%;
                 top: 14%;
@@ -155,7 +156,7 @@
             }
 
             #popup4 {
-                display: none; /* 기본적으로 숨김 */
+                display: none; 
                 width: 40%;
                 left: 60%;
                 top: 24%;
@@ -163,7 +164,7 @@
             }
 
             #popup5 {
-                display: none; /* 기본적으로 숨김 */
+                display: none;
                 width: 40%;
                 left: 60%;
                 top: 37%;
@@ -171,7 +172,7 @@
             }
 
             #popup6 {
-                display: none; /* 기본적으로 숨김 */
+                display: none; 
                 width: 40%;
                 left: 60%;
                 top: 58%;
@@ -179,7 +180,7 @@
             }
 
             #popup7 {
-                display: none; /* 기본적으로 숨김 */
+                display: none; 
                 width: 40%;
                 left: 60%;
                 top: 62%;
@@ -187,7 +188,7 @@
             }
 
             #popup8 {
-                display: none; /* 기본적으로 숨김 */
+                display: none; 
                 width: 40%;
                 left: 60%;
                 top: 70%;
@@ -195,21 +196,21 @@
             }
 
             #popup9 {
-                display: none; /* 기본적으로 숨김 */
+                display: none;
                 width: 40%;
                 left: 60%;
                 top: 76%;
                 z-index: 1000;
             }
-
+            */
             p{
                 padding: 1.5vw;
                 padding-bottom: 0;
                 margin: 0;
             }
-
+            /*
             .popup-overlay {
-                display: none; /* 기본적으로 숨김 */
+                display: none; 
                 position: fixed;
                 top: 0;
                 left: 0;
@@ -229,7 +230,7 @@
             #popup8.active,
             #popup9.active,
             .popup-overlay.active {
-                display: block; /* 활성화 시 보이게 함 */
+                display: block; 
             }
 
             #calEvent2{
@@ -559,7 +560,7 @@
                 border-bottom: 0.07pc solid rgb(129, 129, 129);
             }
 
-            /*
+            
             #calEvent28{
                 position: absolute;
                 width: 9.25%;
@@ -570,7 +571,7 @@
                 background-color: rgba(125, 201, 255, 0.164);
                 border-bottom: 0.07pc solid rgb(129, 129, 129);
             }
-            */
+            
 
             #calEvent29{
                 position: absolute;
@@ -626,7 +627,7 @@
                 background-color: rgba(125, 201, 255, 0.164);
                 border-bottom: 0.07pc solid rgb(129, 129, 129);
             }
-            
+            */
 
             @media screen and (max-width: 768px) {
                 #mainbox {
@@ -666,7 +667,7 @@
                     width: 100%;
                     margin-bottom: 0.5vh;
                 }
-
+                /*
                 .popup{
                     position: absolute;
                     font-family: 'NanumSquareAcr';
@@ -675,6 +676,7 @@
                     border: 0.05em solid rgb(92, 185, 209);
                     background-color: rgb(255, 235, 123);
                 }
+                */
             }
         </style>
     </head>
@@ -722,6 +724,7 @@
             </div>
             <div class="inbox" id="p3">
                 <img width="100%" src="source/5.jpg">
+                <!--
                 <div class="calBox">
                     <div id="calEvent1"></div>
                     <div class="popup-overlay" id="popupOverlay"></div>
@@ -767,6 +770,7 @@
                         popupOverlay.addEventListener('click', closePopupFunc); // 배경 클릭 시 닫기
                     </script>
                 </div>
+            -->
             </div>
             <div class="inbox" id="p4"><img width="100%" src="source/6.jpg"></div>
         </div>
