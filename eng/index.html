@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html>
+    <!--2025.01.05 ~ 2025.01.11 Chung-Ang University University Innovation Support Project - Nagasaki·Hiroshima Workshop Information Webpage-->
+    <head>
+        <title>Nagasaki·Hiroshima Workshop Information Webpage 2025.01.05 ~ 2025.01.11</title>
+        <meta name="author" content="Yerin Park, Eojin Lee, Yeong-wook Joo">
+        <meta name="viewport" content="width=divice-width, initial-scale=1.0">
+        <meta http-equiv="Content-Script-Type" content="text/javascript">
+        <meta http-equiv="Content-Style-Type" content="text/css">
+        <meta http-equiv="Reply-To" content="nether423@cau.ac.kr">
+        <meta http-equiv="Email" content="nether423@cau.ac.kr">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta http-equiv="Cache-Control" content="no-cache">
+        <meta http-equiv="Pragma" content="no-cache">
+
+        <link rel="icon" type="image/png" href="../source/Puang.png" sizes="192x192">
+        <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
+
+        <meta property="og:image" content="https://realette.github.io/Nagasaki-Hiroshima-Workshop/source/Puang2.png">
+
+        <style>
+            #mainbox {
+                position: relative;
+                width: 60%;
+                height: fit-content;
+                margin: 20%;
+                margin-top: 3vh;
+                margin-bottom: 7vh;
+            }
+
+            #langBox{
+                position: absolute;
+                border-radius: 20%;
+                border: 0.15pc solid rgb(0, 0, 0);
+                width: 3vw;
+                height: 2.85vw;
+                padding: 0.25%; 
+                background: linear-gradient(120deg, rgb(255, 255, 255), rgb(25, 213, 255));;
+                top: 2vh;
+                right: 17%;
+                overflow: hidden;
+                z-index: 1000;
+            }
+            
+            #langIcon{
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+            }
+
+            .inbox{
+                position: relative;
+                width: 100%;
+                margin-bottom: 3vh;
+            }
+            
+            
+            html{
+                background-color: rgb(194, 194, 194);
+                }
+
+            body{
+                margin: 0;
+            }
+
+            a {
+               
+            }
+
+            #warpBox{
+                position: absolute;
+                top: 47%;
+                left: 20.5%;
+                width: 60%;
+                height: 22%;
+                display: grid; /* Grid 레이아웃 사용 */
+                grid-template-columns: repeat(1, 1fr); /* 한 줄에 5개의 열 */
+                gap: 0; /* 요소 간 간격 */
+                z-index: 10;
+            }
+
+            .warpTag{
+                position: relative;
+                z-index: 11;
+            }
+
+            #clickerBox{
+                position: absolute;
+                width: 80%;
+                height: 65%;
+                top: 26.5%;
+                left: 9.8%;
+                display: grid; /* Grid 레이아웃 사용 */
+                grid-template-columns: repeat(5, 1fr); /* 한 줄에 5개의 열 */
+                gap: 3%; /* 요소 간 간격 */
+                z-index: 10;
+            }
+
+            .clicker{
+                position: relative;
+                z-index: 11;
+            }
+            /*
+            .calBox{
+                position: absolute;
+                width: 80%;
+                height: 66%;
+                top: 24.75%;
+                left: 10%;
+            }
+
+            #calEvent1{
+                position: absolute;
+                width: 12.5%;
+                height: 38.25%;
+                left: 25%;
+                top: 62.75%;
+                z-index: 20;
+                background-color: rgba(255, 242, 125, 0.164);
+            }
+
+            .popup{
+                position: absolute;
+                font-family: 'NanumSquareAcr';
+                font-size: 8pt;
+                line-height: 1.5em;
+                border: 0.05em solid rgb(92, 185, 209);
+                background-color: rgb(255, 235, 123);
+                height: fit-content;
+                padding-bottom: 1.5vw;
+            }
+
+            #popup1 {
+                display: none; 
+                width: 60%;
+                left: 40%;
+                bottom: 0;
+                z-index: 1000;
+            }
+
+            
+            #popup2 {
+                display: none; 
+                width: 40%;
+                left: 60%;
+                top: 2%;
+                z-index: 1000;
+            }
+
+            #popup3 {
+                display: none;
+                width: 40%;
+                left: 60%;
+                top: 14%;
+                z-index: 1000;
+            }
+
+            #popup4 {
+                display: none; 
+                width: 40%;
+                left: 60%;
+                top: 24%;
+                z-index: 1000;
+            }
+
+            #popup5 {
+                display: none;
+                width: 40%;
+                left: 60%;
+                top: 37%;
+                z-index: 1000;
+            }
+
+            #popup6 {
+                display: none; 
+                width: 40%;
+                left: 60%;
+                top: 58%;
+                z-index: 1000;
+            }
+
+            #popup7 {
+                display: none; 
+                width: 40%;
+                left: 60%;
+                top: 62%;
+                z-index: 1000;
+            }
+
+            #popup8 {
+                display: none; 
+                width: 40%;
+                left: 60%;
+                top: 70%;
+                z-index: 1000;
+            }
+
+            #popup9 {
+                display: none;
+                width: 40%;
+                left: 60%;
+                top: 76%;
+                z-index: 1000;
+            }
+            */
+            p{
+                padding: 1.5vw;
+                padding-bottom: 0;
+                margin: 0;
+            }
+            /*
+            .popup-overlay {
+                display: none; 
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0);
+                z-index: 999;
+                }
+
+            #popup1.active,
+            #popup2.active,
+            #popup3.active,
+            #popup4.active,
+            #popup5.active,
+            #popup6.active,
+            #popup7.active,
+            #popup8.active,
+            #popup9.active,
+            .popup-overlay.active {
+                display: block; 
+            }
+
+            #calEvent2{
+                position: absolute;
+                width: 38%;
+                height: 5.6%;
+                left: 22%;
+                top: 4.5%;
+                z-index: 20;
+                background-color: rgba(255, 242, 125, 0.164);
+            }
+
+            #calEvent3{
+                position: absolute;
+                width: 38%;
+                height: 3.5%;
+                left: 22%;
+                top: 17%;
+                z-index: 20;
+                background-color: rgba(255, 242, 125, 0.164);
+            }
+
+            #calEvent4{
+                position: absolute;
+                width: 38%;
+                height: 3.5%;
+                left: 22%;
+                top: 27.5%;
+                z-index: 20;
+                background-color: rgba(255, 242, 125, 0.164);
+            }
+
+            #calEvent5{
+                position: absolute;
+                width: 38%;
+                height: 8.25%;
+                left: 22%;
+                top: 37.5%;
+                z-index: 20;
+                background-color: rgba(255, 242, 125, 0.164);
+            }
+
+            #calEvent5-2{
+                position: absolute;
+                width: 36%;
+                height: 5.75%;
+                left: 22%;
+                top: 45.75%;
+                z-index: 20;
+                background-color: rgba(125, 201, 255, 0.164);
+                font-family: 'NanumSquareAcr';
+                font-size: 0.15pc;
+                line-height: 1.5em;
+                text-align: right;
+                padding: 1%;
+            }
+
+            #calEvent6{
+                position: absolute;
+                width: 38%;
+                height: 3.5%;
+                left: 22%;
+                top: 61%;
+                z-index: 20;
+                background-color: rgba(255, 242, 125, 0.164);
+            }
+
+            #calEvent7{
+                position: absolute;
+                width: 38%;
+                height: 3.5%;
+                left: 22%;
+                top: 64.5%;
+                z-index: 20;
+                background-color: rgba(255, 242, 125, 0.164);
+            }
+
+            #calEvent8{
+                position: absolute;
+                width: 38%;
+                height: 5.1%;
+                left: 22%;
+                top: 71.5%;
+                z-index: 20;
+                background-color: rgba(255, 242, 125, 0.164);
+            }
+
+            #calEvent9{
+                position: absolute;
+                width: 38%;
+                height: 5.6%;
+                left: 22%;
+                top: 76.75%;
+                z-index: 20;
+                background-color: rgba(255, 242, 125, 0.164);
+            }
+
+            #calEvent-inf1{
+                position: absolute;
+                width: 33%;
+                height: 1.5%;
+                left: 12.75%;
+                top: 35%;
+                z-index: 20;
+                background-color: rgba(125, 201, 255, 0.164);
+                border-bottom: 0.06pc solid rgb(73, 123, 187);
+            }
+
+            #calEvent-inf2{
+                position: absolute;
+                width: 23.25%;
+                height: 1.5%;
+                left: 16.5%;
+                top: 71.25%;
+                z-index: 20;
+                background-color: rgba(125, 201, 255, 0.164);
+                border-bottom: 0.06pc solid rgb(73, 123, 187);
+            }
+
+            #calEvent-inf3{
+                position: absolute;
+                width: 40.5%;
+                height: 1.5%;
+                left: 16.5%;
+                top: 78.3%;
+                z-index: 20;
+                background-color: rgba(125, 201, 255, 0.164);
+                border-bottom: 0.06pc solid rgb(73, 123, 187);
+            }
+
+            #calEvent10{
+                position: absolute;
+                width: 24%;
+                height: 13.5%;
+                left: 2.5%;
+                top: 14.75%;
+                z-index: 20;
+                background-color: rgba(125, 201, 255, 0.164);
+            }
+
+            #calEvent11{
+                position: absolute;
+                width: 24%;
+                height: 10.5%;
+                left: 2.5%;
+                top: 28.25%;
+                z-index: 20;
+                background-color: rgba(125, 201, 255, 0.164);
+            }
+            
+            #calEvent12{
+                position: absolute;
+                width: 24%;
+                height: 10.5%;
+                left: 2.5%;
+                top: 38.75%;
+                z-index: 20;
+                background-color: rgba(125, 201, 255, 0.164);
+            }
+
+            #calEvent13{
+                position: absolute;
+                width: 24%;
+                height: 10.5%;
+                left: 2.5%;
+                top: 49.5%;
+                z-index: 20;
+                background-color: rgba(125, 201, 255, 0.164);
+            }
+
+            #calEvent14{
+                position: absolute;
+                width: 24%;
+                height: 10.5%;
+                left: 2.75%;
+                top: 60%;
+                z-index: 20;
+                background-color: rgba(125, 201, 255, 0.164);
+            }
+
+            
+            #calEvent15{
+                position: absolute;
+                width: 24%;
+                height: 15.5%;
+                left: 2.5%;
+                top: 70.75%;
+                z-index: 20;
+                background-color: rgba(125, 201, 255, 0.164);
+            }
+
+            #calEvent16{
+                position: absolute;
+                width: 24%;
+                height: 10.5%;
+                left: 2.5%;
+                top: 86.25%;
+                z-index: 20;
+                background-color: rgba(125, 201, 255, 0.164);
+            }
+            
+            #calEvent17{
+                position: absolute;
+                width: 24%;
+                height: 16.25%;
+                left: 2.75%;
+                top: 16%;
+                z-index: 20;
+                background-color: rgba(125, 201, 255, 0.164);
+            }
+            
+            #calEvent18{
+                position: absolute;
+                width: 24%;
+                height: 15.75%;
+                left: 2.75%;
+                top: 32.25%;
+                z-index: 20;
+                background-color: rgba(125, 201, 255, 0.164);
+            }
+
+            #calEvent19{
+                position: absolute;
+                width: 24%;
+                height: 15.5%;
+                left: 2.75%;
+                top: 48%;
+                z-index: 20;
+                background-color: rgba(125, 201, 255, 0.164);
+            }
+            
+            #calEvent20{
+                position: absolute;
+                width: 24%;
+                height: 18.25%;
+                left: 2.75%;
+                top: 63.25%;
+                z-index: 20;
+                background-color: rgba(125, 201, 255, 0.164);
+            }
+
+            #calEvent21{
+                position: absolute;
+                width: 24%;
+                height: 15.5%;
+                left: 2.75%;
+                top: 81.5%;
+                z-index: 20;
+                background-color: rgba(125, 201, 255, 0.164);
+            }
+
+            
+            #calEvent22{
+                position: absolute;
+                width: 25%;
+                height: 2.5%;
+                left: 12%;
+                top: 7.75%;
+                z-index: 20;
+                background-color: rgba(125, 201, 255, 0.164);
+                border-bottom: 0.06pc solid rgb(129, 129, 129);
+            }
+
+            #calEvent23{
+                position: absolute;
+                width: 25%;
+                height: 2.5%;
+                left: 12%;
+                top: 25.75%;
+                z-index: 20;
+                background-color: rgba(125, 201, 255, 0.164);
+                border-bottom: 0.06pc solid rgb(129, 129, 129);
+            }
+
+            #calEvent24{
+                position: absolute;
+                width: 25%;
+                height: 3%;
+                left: 12%;
+                top: 41%;
+                z-index: 20;
+                background-color: rgba(125, 201, 255, 0.164);
+                border-bottom: 0.06pc solid rgb(129, 129, 129);
+            }
+
+            #calEvent24-2{
+                position: absolute;
+                width: 7%;
+                height: 1.5%;
+                left: 67.25%;
+                top: 43%;
+                z-index: 20;
+                background-color: rgba(125, 201, 255, 0.164);
+                border-bottom: 0.06pc solid rgb(73, 123, 187);
+            }
+
+            #calEvent25{
+                position: absolute;
+                width: 25%;
+                height: 3.25%;
+                left: 11.5%;
+                top: 68.25%;
+                z-index: 20;
+                background-color: rgba(125, 201, 255, 0.164);
+                border-bottom: 0.06pc solid rgb(129, 129, 129);
+            }
+
+            #calEvent26{
+                position: absolute;
+                width: 9.25%;
+                height: 4.5%;
+                left: 23%;
+                top: 9%;
+                z-index: 20;
+                background-color: rgba(125, 201, 255, 0.164);
+                border-bottom: 0.07pc solid rgb(129, 129, 129);
+            }
+
+            #calEvent27{
+                position: absolute;
+                width: 9.25%;
+                height: 4.5%;
+                left: 23%;
+                top: 23%;
+                z-index: 20;
+                background-color: rgba(125, 201, 255, 0.164);
+                border-bottom: 0.07pc solid rgb(129, 129, 129);
+            }
+
+            
+            #calEvent28{
+                position: absolute;
+                width: 9.25%;
+                height: 3.5%;
+                left: 23%;
+                top: 35%;
+                z-index: 20;
+                background-color: rgba(125, 201, 255, 0.164);
+                border-bottom: 0.07pc solid rgb(129, 129, 129);
+            }
+            
+
+            #calEvent29{
+                position: absolute;
+                width: 9.75%;
+                height: 4.25%;
+                left: 22.5%;
+                top: 49%;
+                z-index: 20;
+                background-color: rgba(125, 201, 255, 0.164);
+                border-bottom: 0.07pc solid rgb(129, 129, 129);
+            }
+
+            #calEvent30{
+                position: absolute;
+                width: 9.75%;
+                height: 7.25%;
+                left: 22.5%;
+                top: 60%;
+                z-index: 20;
+                background-color: rgba(125, 201, 255, 0.164);
+                border-bottom: 0.07pc solid rgb(129, 129, 129);
+            }
+
+            #calEvent30-2{
+                position: absolute;
+                width: 7%;
+                height: 1.5%;
+                left: 63%;
+                top: 64.25%;
+                z-index: 20;
+                background-color: rgba(125, 201, 255, 0.164);
+                border-bottom: 0.06pc solid rgb(73, 123, 187);
+            }
+
+            #calEvent31{
+                position: absolute;
+                width: 9.75%;
+                height: 2.25%;
+                left: 22.5%;
+                top: 74%;
+                z-index: 20;
+                background-color: rgba(125, 201, 255, 0.164);
+                border-bottom: 0.07pc solid rgb(129, 129, 129);
+            }
+            
+            #calEvent32{
+                position: absolute;
+                width: 9.75%;
+                height: 4.25%;
+                left: 22.5%;
+                top: 86%;
+                z-index: 20;
+                background-color: rgba(125, 201, 255, 0.164);
+                border-bottom: 0.07pc solid rgb(129, 129, 129);
+            }
+            */
+
+            @media screen and (max-width: 768px) {
+                #mainbox {
+                    position: relative;
+                    width: 100%;
+                    height: fit-content;
+                    margin: 0;
+                    margin-top: 0;
+                    margin-bottom: 0;
+                }
+
+                
+            #langBox{
+                border-radius: 20%;
+                border: 0.05pc solid rgb(0, 0, 0);
+                width: 5vw;
+                height: 4.66vw;
+                padding: 0.05pc; 
+                background: linear-gradient(120deg, rgb(255, 255, 255), rgb(25, 213, 255));;
+                top: 5vw;
+                right: 2.5%;
+                overflow: hidden;
+                z-index: 1000;
+            }
+            
+            #langIcon{
+                position: absolute;
+                top: 0;
+                width: 90%;
+                transform: translate(-2.5%, 2%);
+                height: auto;
+                object-fit: cover;
+            }
+
+
+                .inbox{
+                    width: 100%;
+                    margin-bottom: 0.5vh;
+                }
+                /*
+                .popup{
+                    position: absolute;
+                    font-family: 'NanumSquareAcr';
+                    font-size: 2.8pt;
+                    line-height: 2em;
+                    border: 0.05em solid rgb(92, 185, 209);
+                    background-color: rgb(255, 235, 123);
+                }
+                */
+            }
+        </style>
+    </head>
+    
+    <body>
+        <a id="langBox" href="../index.html"><img id="langIcon" src="../source/Lang.png"></a>
+        <div id="mainbox">
+            <div class="inbox" id="title">
+                <img width="100%" src="source/1.jpg">
+            </div>
+            <div class="inbox" id="MOC">
+                <img width="100%" src="source/2.jpg">
+                <div id="warpBox">
+                    <a class="warpTag" href="#p1"></a>
+                    <a class="warpTag" href="#p2"></a>
+                    <a class="warpTag" href="#p3"></a>
+                    <a class="warpTag" href="#p4"></a>
+                </div>
+            </div>
+            <div class="inbox" id="p1"><img width="100%" src="source/3.jpg"></div>
+            <div class="inbox" id="p2">
+                <img width="100%" src="source/4.jpg">
+                <div id="clickerBox">
+                    <a class="clicker" href="source/0-pfLMK.html"></a>
+                    <div class="clicker"></div>
+                    <div class="clicker"></div>
+                    <div class="clicker"></div>
+                    <div class="clicker"></div>
+                    <a class="clicker" href="source/1-KYS.html"></a>
+                    <a class="clicker" href="source/2-RV.html"></a>
+                    <a class="clicker" href="source/3-PSH.html"></a>
+                    <a class="clicker" href="source/4-PYR.html"></a>
+                    <a class="clicker" href="source/5-SSH.html"></a>
+                    <a class="clicker" href="source/6-ASH.html"></a>
+                    <a class="clicker" href="source/7-AYB.html"></a>
+                    <a class="clicker" href="source/8-LSB.html"></a>
+                    <a class="clicker" href="source/9-LEJ.html"></a>
+                    <a class="clicker" href="source/10-LJS.html"></a>
+                    <a class="clicker" href="source/11-LJH.html"></a>
+                    <a class="clicker" href="source/12-JHY.html"></a>
+                    <a class="clicker" href="source/13-JGH.html"></a>
+                    <a class="clicker" href="source/14-JYW.html"></a>
+                    <a class="clicker" href="source/15-HHJ.html"></a>
+                </div>
+            </div>
+            <div class="inbox" id="p3">
+                <img width="100%" src="source/5.jpg">
+                <!--
+                <div class="calBox">
+                    <div id="calEvent1"></div>
+                    <div class="popup-overlay" id="popupOverlay"></div>
+                    <div class="popup" id="popup1">
+                        <p>
+                            14시 피폭체험담
+                            <br>장소: 나가사키피폭재해자협회
+                            <br>체험강의자 : 나가사키피폭재해자협회 카카타 후미애 사무국장
+                        </p>
+                        <p>
+                            ★피폭체험담 강사
+                            <br>카키타 후미에
+                            <br>1993년부터 나가사키원폭피해자협의회사무국장으로 근무하여 2016년부터 현재까지 사무국장으로 재직중.
+                            <br>2012년 피폭2세 모임을 결성 전쟁이 없는 핵무기가 없는 세계를 실현하기 위해 피폭2세로서 체험담을 다음세대에 전하는 활동을 하고 있음.
+                            <br>나가사키시 가족교류증언사업에 참가하여 어머니의 피폭체험담과 여러 다른 피폭자들의
+                            <br>체험담을 아이들에게 들려주는 활동을 하고 있음.
+                        </p>
+                        <p>
+                            15시 헌화: 피폭80주년과 한일수교 60주년을 기념하여 한일 화해의 대승적 차원에서 한인묘역과 일본인 묘역 동시 헌화식 거행
+                        </p>
+                        <p>                         
+                            16시 원폭박물관
+                        </p>
+                        <p>17시 단체 촬영: 평화공원과 원폭박물관에서 다양한 단체 촬영예정</p>
+                    </div>
+                    <script>
+                        // 요소 가져오기
+                        const calEvent1 = document.getElementById('calEvent1'); // 클릭 트리거 div
+                        const popup1 = document.getElementById('popup1'); // 팝업창
+                        const popupOverlay = document.getElementById('popupOverlay'); // 팝업 배경
+                        // 팝업 열기 함수
+                        function openPopup() {
+                          popup1.classList.add('active');
+                          popupOverlay.classList.add('active');
+                        }
+                        // 팝업 닫기 함수
+                        function closePopupFunc() {
+                        popup1.classList.remove('active');
+                        popupOverlay.classList.remove('active');
+                        }
+                        // 이벤트 리스너 추가
+                        calEvent1.addEventListener('click', openPopup); // calEvent1 클릭 시 팝업 열기
+                        popupOverlay.addEventListener('click', closePopupFunc); // 배경 클릭 시 닫기
+                    </script>
+                </div>
+            -->
+            </div>
+            <div class="inbox" id="p4"><img width="100%" src="source/6.jpg"></div>
+        </div>
+    
+    </body>
+    
+    </html>
+    

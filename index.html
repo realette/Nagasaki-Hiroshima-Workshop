@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html>
+    <!--2025.01.05 ~ 2025.01.11 중앙대학교 대학혁신지원사업 나가사키·히로시마 워크샵 안내 웹 문서입니다.-->
+    <head>
+        <title>나가사키·히로시마 워크샵 안내 웹 문서 2025.01.05 ~ 2025.01.11</title>
+        <meta name="author" content="Yerin Park, Eojin Lee, Yeong-wook Joo">
+        <meta name="viewport" content="width=divice-width, initial-scale=1.0">
+        <meta http-equiv="Content-Script-Type" content="text/javascript">
+        <meta http-equiv="Content-Style-Type" content="text/css">
+        <meta http-equiv="Reply-To" content="nether423@cau.ac.kr">
+        <meta http-equiv="Email" content="nether423@cau.ac.kr">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta http-equiv="Cache-Control" content="no-cache">
+        <meta http-equiv="Pragma" content="no-cache">
+
+        <link rel="icon" type="image/png" href="source/Puang.png" sizes="192x192">
+        <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
+
+        <meta property="og:image" content="https://realette.github.io/Nagasaki-Hiroshima-Workshop/source/Puang2.png">
+
+        <style>
+            #mainbox {
+                position: relative;
+                width: 60%;
+                height: fit-content;
+                margin: 20%;
+                margin-top: 3vh;
+                margin-bottom: 7vh;
+            }
+
+            #langBox{
+                position: absolute;
+                border-radius: 20%;
+                border: 0.15pc solid rgb(0, 0, 0);
+                width: 3vw;
+                height: 2.85vw;
+                padding: 0.25%; 
+                background: linear-gradient(120deg, rgb(255, 255, 255), rgb(25, 213, 255));;
+                top: 2vh;
+                right: 17%;
+                overflow: hidden;
+                z-index: 1000;
+            }
+            
+            #langIcon{
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+            }
+
+            .inbox{
+                position: relative;
+                width: 100%;
+                margin-bottom: 3vh;
+            }
+            
+            
+            html{
+                background-color: rgb(194, 194, 194);
+                }
+
+            body{
+                margin: 0;
+            }
+
+            a {
+               
+            }
+
+            #warpBox{
+                position: absolute;
+                top: 26.75%;
+                left: 20.5%;
+                width: 60%;
+                height: 59.25%;
+                display: grid; /* Grid 레이아웃 사용 */
+                grid-template-columns: repeat(1, 1fr); /* 한 줄에 5개의 열 */
+                gap: 0; /* 요소 간 간격 */
+                z-index: 10;
+            }
+
+            .warpTag{
+                position: relative;
+                z-index: 11;
+            }
+
+            #clickerBox{
+                position: absolute;
+                width: 80%;
+                height: 65%;
+                top: 26.5%;
+                left: 9.8%;
+                display: grid; /* Grid 레이아웃 사용 */
+                grid-template-columns: repeat(5, 1fr); /* 한 줄에 5개의 열 */
+                gap: 3%; /* 요소 간 간격 */
+                z-index: 10;
+            }
+
+            .clicker{
+                position: relative;
+                z-index: 11;
+            }
+
+            .calBox{
+                position: absolute;
+                width: 80%;
+                height: 66%;
+                top: 24.75%;
+                left: 10%;
+            }
+
+            #calEvent1{
+                position: absolute;
+                width: 12.5%;
+                height: 38.25%;
+                left: 25%;
+                top: 62.25%;
+                z-index: 20;
+                background-color: rgba(255, 242, 125, 0.164);
+            }
+
+            .popup{
+                position: absolute;
+                font-family: 'NanumSquareAcr';
+                font-size: 8pt;
+                line-height: 1.5em;
+                border: 0.05em solid rgb(92, 185, 209);
+                background-color: rgb(255, 235, 123);
+                height: fit-content;
+                padding-bottom: 1.5vw;
+            }
+
+            #popup1 {
+                display: none; /* 기본적으로 숨김 */
+                width: 60%;
+                left: 40%;
+                bottom: 0;
+                z-index: 1000;
+            }
+
+            #popup2 {
+                display: none; /* 기본적으로 숨김 */
+                width: 40%;
+                left: 60%;
+                top: 2%;
+                z-index: 1000;
+            }
+
+            #popup3 {
+                display: none; /* 기본적으로 숨김 */
+                width: 40%;
+                left: 60%;
+                top: 14%;
+                z-index: 1000;
+            }
+
+            #popup4 {
+                display: none; /* 기본적으로 숨김 */
+                width: 40%;
+                left: 60%;
+                top: 24%;
+                z-index: 1000;
+            }
+
+            #popup5 {
+                display: none; /* 기본적으로 숨김 */
+                width: 40%;
+                left: 60%;
+                top: 37%;
+                z-index: 1000;
+            }
+
+            #popup6 {
+                display: none; /* 기본적으로 숨김 */
+                width: 40%;
+                left: 60%;
+                top: 58%;
+                z-index: 1000;
+            }
+
+            #popup7 {
+                display: none; /* 기본적으로 숨김 */
+                width: 40%;
+                left: 60%;
+                top: 62%;
+                z-index: 1000;
+            }
+
+            #popup8 {
+                display: none; /* 기본적으로 숨김 */
+                width: 40%;
+                left: 60%;
+                top: 70%;
+                z-index: 1000;
+            }
+
+            #popup9 {
+                display: none; /* 기본적으로 숨김 */
+                width: 40%;
+                left: 60%;
+                top: 76%;
+                z-index: 1000;
+            }
+
+            p{
+                padding: 1.5vw;
+                padding-bottom: 0;
+                margin: 0;
+            }
+
+            .popup-overlay {
+                display: none; /* 기본적으로 숨김 */
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0);
+                z-index: 999;
+                }
+
+            #popup1.active,
+            #popup2.active,
+            #popup3.active,
+            #popup4.active,
+            #popup5.active,
+            #popup6.active,
+            #popup7.active,
+            #popup8.active,
+            #popup9.active,
+            .popup-overlay.active {
+                display: block; /* 활성화 시 보이게 함 */
+            }
+
+            #calEvent2{
+                position: absolute;
+                width: 38%;
+                height: 5.6%;
+                left: 22%;
+                top: 4.5%;
+                z-index: 20;
+                background-color: rgba(255, 242, 125, 0.164);
+            }
+
+            #calEvent3{
+                position: absolute;
+                width: 38%;
+                height: 3.5%;
+                left: 22%;
+                top: 17%;
+                z-index: 20;
+                background-color: rgba(255, 242, 125, 0.164);
+            }
+
+            #calEvent4{
+                position: absolute;
+                width: 38%;
+                height: 3.5%;
+                left: 22%;
+                top: 27.5%;
+                z-index: 20;
+                background-color: rgba(255, 242, 125, 0.164);
+            }
+
+            #calEvent5{
+                position: absolute;
+                width: 38%;
+                height: 8.25%;
+                left: 22%;
+                top: 37.5%;
+                z-index: 20;
+                background-color: rgba(255, 242, 125, 0.164);
+            }
+
+            #calEvent5-2{
+                position: absolute;
+                width: 36%;
+                height: 5.75%;
+                left: 22%;
+                top: 45.75%;
+                z-index: 20;
+                background-color: rgba(125, 201, 255, 0.164);
+                font-family: 'NanumSquareAcr';
+                font-size: 0.15pc;
+                line-height: 1.5em;
+                text-align: right;
+                padding: 1%;
+            }
+
+            #calEvent6{
+                position: absolute;
+                width: 38%;
+                height: 3.5%;
+                left: 22%;
+                top: 61%;
+                z-index: 20;
+                background-color: rgba(255, 242, 125, 0.164);
+            }
+
+            #calEvent7{
+                position: absolute;
+                width: 38%;
+                height: 3.5%;
+                left: 22%;
+                top: 64.5%;
+                z-index: 20;
+                background-color: rgba(255, 242, 125, 0.164);
+            }
+
+            #calEvent8{
+                position: absolute;
+                width: 38%;
+                height: 5.1%;
+                left: 22%;
+                top: 71.5%;
+                z-index: 20;
+                background-color: rgba(255, 242, 125, 0.164);
+            }
+
+            #calEvent9{
+                position: absolute;
+                width: 38%;
+                height: 5.6%;
+                left: 22%;
+                top: 76.75%;
+                z-index: 20;
+                background-color: rgba(255, 242, 125, 0.164);
+            }
+
+            #calEvent-inf1{
+                position: absolute;
+                width: 33%;
+                height: 1.5%;
+                left: 12.75%;
+                top: 35%;
+                z-index: 20;
+                background-color: rgba(125, 201, 255, 0.164);
+                border-bottom: 0.06pc solid rgb(73, 123, 187);
+            }
+
+            #calEvent-inf2{
+                position: absolute;
+                width: 23.25%;
+                height: 1.5%;
+                left: 16.5%;
+                top: 71.25%;
+                z-index: 20;
+                background-color: rgba(125, 201, 255, 0.164);
+                border-bottom: 0.06pc solid rgb(73, 123, 187);
+            }
+
+            #calEvent-inf3{
+                position: absolute;
+                width: 40.5%;
+                height: 1.5%;
+                left: 16.5%;
+                top: 78.3%;
+                z-index: 20;
+                background-color: rgba(125, 201, 255, 0.164);
+                border-bottom: 0.06pc solid rgb(73, 123, 187);
+            }
+
+            #calEvent10{
+                position: absolute;
+                width: 24%;
+                height: 13.5%;
+                left: 2.5%;
+                top: 14.75%;
+                z-index: 20;
+                background-color: rgba(125, 201, 255, 0.164);
+            }
+
+            #calEvent11{
+                position: absolute;
+                width: 24%;
+                height: 10.5%;
+                left: 2.5%;
+                top: 28.25%;
+                z-index: 20;
+                background-color: rgba(125, 201, 255, 0.164);
+            }
+            
+            #calEvent12{
+                position: absolute;
+                width: 24%;
+                height: 10.5%;
+                left: 2.5%;
+                top: 38.75%;
+                z-index: 20;
+                background-color: rgba(125, 201, 255, 0.164);
+            }
+
+            #calEvent13{
+                position: absolute;
+                width: 24%;
+                height: 10.5%;
+                left: 2.5%;
+                top: 49.5%;
+                z-index: 20;
+                background-color: rgba(125, 201, 255, 0.164);
+            }
+
+            #calEvent14{
+                position: absolute;
+                width: 24%;
+                height: 10.5%;
+                left: 2.75%;
+                top: 60%;
+                z-index: 20;
+                background-color: rgba(125, 201, 255, 0.164);
+            }
+
+            
+            #calEvent15{
+                position: absolute;
+                width: 24%;
+                height: 15.5%;
+                left: 2.5%;
+                top: 70.75%;
+                z-index: 20;
+                background-color: rgba(125, 201, 255, 0.164);
+            }
+
+            #calEvent16{
+                position: absolute;
+                width: 24%;
+                height: 10.5%;
+                left: 2.5%;
+                top: 86.25%;
+                z-index: 20;
+                background-color: rgba(125, 201, 255, 0.164);
+            }
+            
+            #calEvent17{
+                position: absolute;
+                width: 24%;
+                height: 16.25%;
+                left: 2.75%;
+                top: 16%;
+                z-index: 20;
+                background-color: rgba(125, 201, 255, 0.164);
+            }
+            
+            #calEvent18{
+                position: absolute;
+                width: 24%;
+                height: 15.75%;
+                left: 2.75%;
+                top: 32.25%;
+                z-index: 20;
+                background-color: rgba(125, 201, 255, 0.164);
+            }
+
+            #calEvent19{
+                position: absolute;
+                width: 24%;
+                height: 15.5%;
+                left: 2.75%;
+                top: 48%;
+                z-index: 20;
+                background-color: rgba(125, 201, 255, 0.164);
+            }
+            
+            #calEvent20{
+                position: absolute;
+                width: 24%;
+                height: 18.25%;
+                left: 2.75%;
+                top: 63.25%;
+                z-index: 20;
+                background-color: rgba(125, 201, 255, 0.164);
+            }
+
+            #calEvent21{
+                position: absolute;
+                width: 24%;
+                height: 15.5%;
+                left: 2.75%;
+                top: 81.5%;
+                z-index: 20;
+                background-color: rgba(125, 201, 255, 0.164);
+            }
+
+            
+            #calEvent22{
+                position: absolute;
+                width: 25%;
+                height: 2.5%;
+                left: 12%;
+                top: 7.75%;
+                z-index: 20;
+                background-color: rgba(125, 201, 255, 0.164);
+                border-bottom: 0.06pc solid rgb(129, 129, 129);
+            }
+
+            #calEvent23{
+                position: absolute;
+                width: 25%;
+                height: 2.5%;
+                left: 12%;
+                top: 25.75%;
+                z-index: 20;
+                background-color: rgba(125, 201, 255, 0.164);
+                border-bottom: 0.06pc solid rgb(129, 129, 129);
+            }
+
+            #calEvent24{
+                position: absolute;
+                width: 25%;
+                height: 3%;
+                left: 12%;
+                top: 41%;
+                z-index: 20;
+                background-color: rgba(125, 201, 255, 0.164);
+                border-bottom: 0.06pc solid rgb(129, 129, 129);
+            }
+
+            #calEvent24-2{
+                position: absolute;
+                width: 7%;
+                height: 1.5%;
+                left: 67.25%;
+                top: 43%;
+                z-index: 20;
+                background-color: rgba(125, 201, 255, 0.164);
+                border-bottom: 0.06pc solid rgb(73, 123, 187);
+            }
+
+            #calEvent25{
+                position: absolute;
+                width: 25%;
+                height: 3.25%;
+                left: 11.5%;
+                top: 68.25%;
+                z-index: 20;
+                background-color: rgba(125, 201, 255, 0.164);
+                border-bottom: 0.06pc solid rgb(129, 129, 129);
+            }
+
+            #calEvent26{
+                position: absolute;
+                width: 9.25%;
+                height: 4.5%;
+                left: 23%;
+                top: 9%;
+                z-index: 20;
+                background-color: rgba(125, 201, 255, 0.164);
+                border-bottom: 0.07pc solid rgb(129, 129, 129);
+            }
+
+            #calEvent27{
+                position: absolute;
+                width: 9.25%;
+                height: 4.5%;
+                left: 23%;
+                top: 23%;
+                z-index: 20;
+                background-color: rgba(125, 201, 255, 0.164);
+                border-bottom: 0.07pc solid rgb(129, 129, 129);
+            }
+
+            /*
+            #calEvent28{
+                position: absolute;
+                width: 9.25%;
+                height: 3.5%;
+                left: 23%;
+                top: 35%;
+                z-index: 20;
+                background-color: rgba(125, 201, 255, 0.164);
+                border-bottom: 0.07pc solid rgb(129, 129, 129);
+            }
+            */
+
+            #calEvent29{
+                position: absolute;
+                width: 9.75%;
+                height: 4.25%;
+                left: 22.5%;
+                top: 49%;
+                z-index: 20;
+                background-color: rgba(125, 201, 255, 0.164);
+                border-bottom: 0.07pc solid rgb(129, 129, 129);
+            }
+
+            #calEvent30{
+                position: absolute;
+                width: 9.75%;
+                height: 7.25%;
+                left: 22.5%;
+                top: 60%;
+                z-index: 20;
+                background-color: rgba(125, 201, 255, 0.164);
+                border-bottom: 0.07pc solid rgb(129, 129, 129);
+            }
+
+            #calEvent30-2{
+                position: absolute;
+                width: 7%;
+                height: 1.5%;
+                left: 63%;
+                top: 64.25%;
+                z-index: 20;
+                background-color: rgba(125, 201, 255, 0.164);
+                border-bottom: 0.06pc solid rgb(73, 123, 187);
+            }
+
+            #calEvent31{
+                position: absolute;
+                width: 9.75%;
+                height: 2.25%;
+                left: 22.5%;
+                top: 74%;
+                z-index: 20;
+                background-color: rgba(125, 201, 255, 0.164);
+                border-bottom: 0.07pc solid rgb(129, 129, 129);
+            }
+            
+            #calEvent32{
+                position: absolute;
+                width: 9.75%;
+                height: 4.25%;
+                left: 22.5%;
+                top: 86%;
+                z-index: 20;
+                background-color: rgba(125, 201, 255, 0.164);
+                border-bottom: 0.07pc solid rgb(129, 129, 129);
+            }
+            
+
+            @media screen and (max-width: 768px) {
+                #mainbox {
+                    position: relative;
+                    width: 100%;
+                    height: fit-content;
+                    margin: 0;
+                    margin-top: 0;
+                    margin-bottom: 0;
+                }
+
+                
+            #langBox{
+                border-radius: 20%;
+                border: 0.05pc solid rgb(0, 0, 0);
+                width: 5vw;
+                height: 4.66vw;
+                padding: 0.05pc; 
+                background: linear-gradient(120deg, rgb(255, 255, 255), rgb(25, 213, 255));;
+                top: 2vh;
+                right: 2.5%;
+                overflow: hidden;
+                z-index: 1000;
+            }
+            
+            #langIcon{
+                position: absolute;
+                top: 0;
+                width: 90%;
+                transform: translate(-2.5%, 2%);
+                height: auto;
+                object-fit: cover;
+            }
+
+
+                .inbox{
+                    width: 100%;
+                    margin-bottom: 0.5vh;
+                }
+
+                .popup{
+                    position: absolute;
+                    font-family: 'NanumSquareAcr';
+                    font-size: 2.8pt;
+                    line-height: 2em;
+                    border: 0.05em solid rgb(92, 185, 209);
+                    background-color: rgb(255, 235, 123);
+                }
+            }
+        </style>
+    </head>
+    
+    <body>
+        <a id="langBox" href="eng/index.html"><img id="langIcon" src="source/Lang.png"></a>
+        <div id="mainbox">
+            <div class="inbox" id="title">
+                <img width="100%" src="source/1.jpg">
+            </div>
+            <div class="inbox" id="MOC">
+                <img width="100%" src="source/2.jpg">
+                <div id="warpBox">
+                    <a class="warpTag" href="#p1"></a>
+                    <a class="warpTag" href="#p2"></a>
+                    <a class="warpTag" href="#p3"></a>
+                    <a class="warpTag" href="#p4"></a>
+                    <a class="warpTag" href="#p5"></a>
+                    <a class="warpTag" href="#p6"></a>
+                    <a class="warpTag" href="#p7"></a>
+                    <a class="warpTag" href="#p8"></a>
+                    <a class="warpTag" href="#p9"></a>
+                    <a class="warpTag" href="#p10"></a>
+                    <a class="warpTag" href="#p11"></a>
+                    <a class="warpTag" href="#p12"></a>
+                </div>
+            </div>
+            <div class="inbox" id="p1"><img width="100%" src="source/3.jpg"></div>
+            <div class="inbox" id="p2">
+                <img width="100%" src="source/4.jpg">
+                <div id="clickerBox">
+                    <a class="clicker" href="source/0-pfLMK.html"></a>
+                    <div class="clicker"></div>
+                    <div class="clicker"></div>
+                    <div class="clicker"></div>
+                    <div class="clicker"></div>
+                    <a class="clicker" href="source/1-KYS.html"></a>
+                    <a class="clicker" href="source/2-RV.html"></a>
+                    <a class="clicker" href="source/3-PSH.html"></a>
+                    <a class="clicker" href="source/4-PYR.html"></a>
+                    <a class="clicker" href="source/5-SSH.html"></a>
+                    <a class="clicker" href="source/6-ASH.html"></a>
+                    <a class="clicker" href="source/7-AYB.html"></a>
+                    <a class="clicker" href="source/8-LSB.html"></a>
+                    <a class="clicker" href="source/9-LEJ.html"></a>
+                    <a class="clicker" href="source/10-LJS.html"></a>
+                    <a class="clicker" href="source/11-LJH.html"></a>
+                    <a class="clicker" href="source/12-JHY.html"></a>
+                    <a class="clicker" href="source/13-JGH.html"></a>
+                    <a class="clicker" href="source/14-JYW.html"></a>
+                    <a class="clicker" href="source/15-HHJ.html"></a>
+                </div>
+            </div>
+            <div class="inbox" id="p3">
+                <img width="100%" src="source/5.jpg">
+                <div class="calBox">
+                    <div id="calEvent1"></div>
+                    <div class="popup-overlay" id="popupOverlay"></div>
+                    <div class="popup" id="popup1">
+                        <p>
+                            14시 피폭체험담
+                            <br>장소: 나가사키피폭재해자협회
+                            <br>체험강의자 : 나가사키피폭재해자협회 카카타 후미애 사무국장
+                        </p>
+                        <p>
+                            ★피폭체험담 강사
+                            <br>카키타 후미에
+                            <br>1993년부터 나가사키원폭피해자협의회사무국장으로 근무하여 2016년부터 현재까지 사무국장으로 재직중.
+                            <br>2012년 피폭2세 모임을 결성 전쟁이 없는 핵무기가 없는 세계를 실현하기 위해 피폭2세로서 체험담을 다음세대에 전하는 활동을 하고 있음.
+                            <br>나가사키시 가족교류증언사업에 참가하여 어머니의 피폭체험담과 여러 다른 피폭자들의
+                            <br>체험담을 아이들에게 들려주는 활동을 하고 있음.
+                        </p>
+                        <p>
+                            15시 헌화: 피폭80주년과 한일수교 60주년을 기념하여 한일 화해의 대승적 차원에서 한인묘역과 일본인 묘역 동시 헌화식 거행
+                        </p>
+                        <p>                         
+                            16시 원폭박물관
+                        </p>
+                        <p>17시 단체 촬영: 평화공원과 원폭박물관에서 다양한 단체 촬영예정</p>
+                    </div>
+                    <script>
+                        // 요소 가져오기
+                        const calEvent1 = document.getElementById('calEvent1'); // 클릭 트리거 div
+                        const popup1 = document.getElementById('popup1'); // 팝업창
+                        const popupOverlay = document.getElementById('popupOverlay'); // 팝업 배경
+                        // 팝업 열기 함수
+                        function openPopup() {
+                          popup1.classList.add('active');
+                          popupOverlay.classList.add('active');
+                        }
+                        // 팝업 닫기 함수
+                        function closePopupFunc() {
+                        popup1.classList.remove('active');
+                        popupOverlay.classList.remove('active');
+                        }
+                        // 이벤트 리스너 추가
+                        calEvent1.addEventListener('click', openPopup); // calEvent1 클릭 시 팝업 열기
+                        popupOverlay.addEventListener('click', closePopupFunc); // 배경 클릭 시 닫기
+                    </script>
+                </div>
+            </div>
+            <div class="inbox" id="p4">
+                <img width="100%" src="source/6.jpg">
+                <div class="calBox">
+                    <div id="calEvent2"></div>
+                    <div class="popup-overlay" id="popupOverlay2"></div>
+                    <div class="popup" id="popup2">
+                        <p>숙소에서 나가사키 버스터미널까지 도보 약 22분 소요됩니다.<br>서둘러 주세요! 이 시간에는 공중교통편이 없습니다. 참고하세요.</p>
+                    </div>
+                    <div id="calEvent3"></div>
+                    <div class="popup" id="popup3">
+                        <p>신칸센까지 여유가 있기 때문에 아침 식사 가능합니다. 각자 취향대로 식사하세요, 지역을 둘러보시고 지하슈퍼에서 도시락도 추천합니다.</p>
+                    </div>
+                    <div id="calEvent4"></div>
+                    <div class="popup" id="popup4">
+                        <p><a href="https://ekimae-hiroba.jp/">히로시마역 앞에 위치한 오코노미야키 가게들이 모여있는 상가.</a> 인당 1160엔 정도, 각자 취향대로 점심식사 하시고 11시20분까지 모이도록 하세요.</p>
+                    </div>
+                    <div id="calEvent5"></div>
+                    <div class="popup" id="popup5">
+                        <p>13:00-14:00 장소 예약</p>
+                    </div>
+                    <a class="warpTag" id="calEvent5-2" href="https://www.hiro-tsuitokinenkan.go.jp/"></a>
+                    <div id="calEvent6"></div>
+                    <div class="popup" id="popup6">
+                        <p>헌화식 거행</p>
+                    </div>
+                    <div id="calEvent7"></div>
+                    <div class="popup" id="popup7">
+                        <p>헌화식 거행</p>
+                    </div>
+                    <div id="calEvent8"></div>
+                    <div class="popup" id="popup8">
+                        <p>백화점 푸드코트에서 저녁 도시락 각자 구매</p>
+                    </div>
+                    <div id="calEvent9"></div>
+                    <div class="popup" id="popup9">
+                        <p><a href="https://www.navitime.co.jp/transfer/searchlist?orvStationName=%E5%BA%83%E5%B3%B6
+                            &amp;dnvStationName=%E5%8D%9A%E5%A4%9A&amp;thrStationName1=&amp;thrStationCode1=&amp;thr
+                            StationName2=&amp;thrStationCode2=&amp;thrStationName3=&amp;thrStationCode3=&amp;month=2024%2F
+                            10&amp;day=07&amp;hour=17&amp;minute=30&amp;orvStationCode=00002397&amp;dnvStationCode=00007420&amp;
+                            basis=0&amp;from=view.transfer.searchlist&amp;freePass=0&amp;sort=0&amp;wspeed=100&amp;airplane=1&amp;sprex
+                            prs=1&amp;utrexprs=1&amp;othexprs=1&amp;mtrplbus=1&amp;intercitybus=1&amp;ferry=1&amp;accidentRailCode=&amp;ac
+                            cidentRailName=&amp;isrec=">신칸센에서 도시락으로 저녁식사</a></p>
+                    </div>
+                    <script>
+                        // 요소 가져오기
+                        const calEvent2 = document.getElementById('calEvent2'); // 클릭 트리거 div
+                        const popup2 = document.getElementById('popup2'); // 팝업창
+                        const popup3 = document.getElementById('popup3'); // 팝업창
+                        const popup4 = document.getElementById('popup4'); // 팝업창
+                        const popup5 = document.getElementById('popup5'); // 팝업창
+                        const popup6 = document.getElementById('popup6'); // 팝업창
+                        const popup7 = document.getElementById('popup7'); // 팝업창
+                        const popup8 = document.getElementById('popup8'); // 팝업창
+                        const popup9 = document.getElementById('popup9'); // 팝업창
+                        const popupOverlay2 = document.getElementById('popupOverlay2'); // 팝업 배경
+                        // 팝업 열기 함수
+                        function openPopup2() {
+                          popup2.classList.add('active');
+                          popupOverlay.classList.add('active');
+                        }
+                        function openPopup3() {
+                          popup3.classList.add('active');
+                          popupOverlay.classList.add('active');
+                        }
+                        function openPopup4() {
+                          popup4.classList.add('active');
+                          popupOverlay.classList.add('active');
+                        }
+                        function openPopup5() {
+                          popup5.classList.add('active');
+                          popupOverlay.classList.add('active');
+                        }
+                        function openPopup6() {
+                          popup6.classList.add('active');
+                          popupOverlay.classList.add('active');
+                        }
+                        function openPopup7() {
+                          popup7.classList.add('active');
+                          popupOverlay.classList.add('active');
+                        }
+                        function openPopup8() {
+                          popup8.classList.add('active');
+                          popupOverlay.classList.add('active');
+                        }
+                        function openPopup9() {
+                          popup9.classList.add('active');
+                          popupOverlay.classList.add('active');
+                        }
+                        // 팝업 닫기 함수
+                        function closePopupFunc() {
+                        popup2.classList.remove('active');
+                        popup3.classList.remove('active');
+                        popup4.classList.remove('active');
+                        popup5.classList.remove('active');
+                        popup6.classList.remove('active');
+                        popup7.classList.remove('active');
+                        popup8.classList.remove('active');
+                        popup9.classList.remove('active');
+                        popupOverlay.classList.remove('active');
+                        }
+                        // 이벤트 리스너 추가
+                        calEvent2.addEventListener('click', openPopup2); 
+                        calEvent3.addEventListener('click', openPopup3); 
+                        calEvent4.addEventListener('click', openPopup4); 
+                        calEvent5.addEventListener('click', openPopup5); 
+                        calEvent6.addEventListener('click', openPopup6); 
+                        calEvent7.addEventListener('click', openPopup7); 
+                        calEvent8.addEventListener('click', openPopup8); 
+                        calEvent9.addEventListener('click', openPopup9); 
+                        popupOverlay.addEventListener('click', closePopupFunc); // 배경 클릭 시 닫기
+                    </script>
+                </div>
+            </div>
+            <div class="inbox" id="p5">
+                <img width="100%" src="source/7.jpg">
+                <a class="warpTag" id="calEvent-inf1" href="https://www.google.co.kr/maps/place/%E9%95%B7%E5%B4%8E%E5%A4%A7%E5%AD%A6+%E8%A6%B3%E6%9C%88%E8%8D%98/@32.7569368,129.8849671,19z/data=!4m10!1m2!2m1!1s11-1+Kami-Nishiyama+machi,+Nagasaki+city,+Japan+850-0006!3m6!1s0x3515534cf3ce8193:0xbec8e06ae4f663bb!8m2!3d32.7569367!4d129.8852653!15sCjgxMS0xIEthbWktTmlzaGl5YW1hIG1hY2hpLCBOYWdhc2FraSBjaXR5LCBKYXBhbiA4NTAtMDAwNpIBB2xvZGdpbmfgAQA!16s%2Fg%2F1v7tj3d2?entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D"></a>
+                <a class="warpTag" id="calEvent-inf2" href="http://google.com/maps/place/FamilyMart/@32.7566668,129.8850045,17.63z/data=!4m6!3m5!1s0x3515534d759716c5:0x9ae6dc3faea7a6c1!8m2!3d32.7555478!4d129.88764!16s%2Fg%2F1td5jfv5?entry=tts&g_ep=EgoyMDI0MTIxMS4wIPu8ASoASAFQAw%3D%3D"></a>
+                <a class="warpTag" id="calEvent-inf3" href="https://www.google.com/maps/place/Mitsubachi+Pharmacy+Katafuchi/@32.7549762,129.882548,17z/data=!4m6!3m5!1s0x3515534c2a9babcb:0xb922bcee0e1b35d3!8m2!3d32.7537339!4d129.8861427!16s%2Fg%2F12jbdl2b4?entry=tts&g_ep=EgoyMDI0MTIxMS4wIPu8ASoASAFQAw%3D%3D"></a>
+            </div>
+            <div class="inbox" id="p6"><img width="100%" src="source/8.jpg"></div>
+            <div class="inbox" id="p6-2"><img width="100%" src="source/9.jpg"></div>
+            <div class="inbox" id="p7"><img width="100%" src="source/10.jpg"></div>
+            <div class="inbox" id="p8"><img width="100%" src="source/11.jpg"></div>
+            <div class="inbox" id="p8-2"><img width="100%" src="source/12.jpg"></div>
+            <div class="inbox" id="p9">
+                <img width="100%" src="source/13.jpg">
+                <div id="hyperBox" class="calBox">
+                    <a class="warpTag" id="calEvent10" href="https://www.city.nagasaki.lg.jp/heiwa/3030000/3030100/p005151.html"></a>
+                    <a class="warpTag" id="calEvent11" href="https://glover-garden.jp/"></a>
+                    <a class="warpTag" id="calEvent12" href="https://www.city.nagasaki.lg.jp/shimin/190001/192001/p000713.html"></a>
+                    <a class="warpTag" id="calEvent13" href="https://www.nagasaki-museum.jp/"></a>
+                    <a class="warpTag" id="calEvent14" href="https://www.japan.travel/ko/spot/752/"></a>
+                    <a class="warpTag" id="calEvent15" href="https://www.japan.travel/ko/spot/754/"></a>
+                    <a class="warpTag" id="calEvent16" href="https://www.inasayama.com/"></a>
+                </div>
+            </div>
+            <div class="inbox" id="p10">
+                <img width="100%" src="source/14.jpg">
+                <div id="hyperBox2" class="calBox">
+                    <a class="warpTag" id="calEvent17" href="https://www.google.co.kr/maps/place/%EB%82%98%EA%B0%80%EC%82%AC%ED%82%A4+%ED%95%98%EB%A7%88%EB%85%B8%EB%A7%88%EC%B9%98+%EC%83%81%EC%A0%90%EA%B0%80/@32.7442178,129.8752204,17z/data=!3m1!4b1!4m6!3m5!1s0x3515533f91d3f987:0xf9857906ede6f64d!8m2!3d32.7442133!4d129.8778007!16s%2Fg%2F11c5swfnqh?entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D"></a>
+                    <a class="warpTag" id="calEvent18" href="https://www.donki.com/store/shop_detail.php?shop_id=295"></a>
+                    <a class="warpTag" id="calEvent19" href="https://www.japan.travel/ko/spot/740/"></a>
+                    <a class="warpTag" id="calEvent20" href="https://www.jrhakatacity.com.k.bv.hp.transer.com/"></a>
+                    <a class="warpTag" id="calEvent21" href="https://www.seiburailway.jp/"></a>
+                </div>
+            </div>
+            <div class="inbox" id="p11">
+                <img width="100%" src="source/15.jpg">
+                <div id="hyperBox3" class="calBox">
+                    <a class="warpTag" id="calEvent22" href="https://www.google.com/maps/place/Cafe+%26+Bar+Umino/@32.7518176,129.8709346,17z/data=!3m2!4b1!5s0x3515533ba626b5b9:0xb15477816ea68779!4m6!3m5!1s0x3515533ba7a55f2f:0xd52a27ace3cc7ba8!8m2!3d32.7518176!4d129.8709346!16s%2Fg%2F1tf6pk5f?entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D"></a>
+                    <a class="warpTag" id="calEvent23" href="https://www.amu-n.co.jp/floorguide/?type=1&area=kamome"></a>
+                    <a class="warpTag" id="calEvent24" href="https://bunmeido.ne.jp/"></a>
+                    <a class="warpTag" id="calEvent24-2" href="https://www.amu-n.co.jp/floorguide/?type=1&area=kamome"></a>
+                    <a class="warpTag" id="calEvent25" href="http://www.amu-n.co.jp.k.ub.hp.transer.com/floorguide/category/?category=food"></a>
+                </div>
+            </div>
+            <div class="inbox" id="p11-2">
+                <img width="100%" src="source/16.jpg">
+                <div id="hyperBox" class="calBox">
+                    <a class="warpTag" id="calEvent26" href="http://www.amu-n.co.jp.k.ub.hp.transer.com/floorguide/?area=area3"></a>
+                    <a class="warpTag" id="calEvent27" href="https://www.laolee.jp/"></a>
+                    <a class="warpTag" id="calEvent28" href=" "></a>
+                    <a class="warpTag" id="calEvent29" href="https://www.jrfs.co.jp/umaya/restaurants/28"></a>
+                    <a class="warpTag" id="calEvent30" href="https://kushi-tanaka.com/"></a>
+                    <a class="warpTag" id="calEvent30-2" href="https://www.amu-n.co.jp/floorguide/?type=1&area=kamome"></a>
+                    <a class="warpTag" id="calEvent31" href="https://x.com/quwaii1"></a>
+                    <a class="warpTag" id="calEvent32" href="https://kr.savorjapan.com/0006119751/"></a>
+                </div>
+            </div>
+            <div class="inbox" id="p12"><img width="100%" src="source/17.jpg"></div>
+        </div>
+    
+    </body>
+    
+    </html>
+    
